@@ -1,0 +1,76 @@
+<%= form_for @mark, :html => { :class => "form-horizontal mark" } do |f| %>
+
+  <% if @mark.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@mark.errors.count, "error") %> prohibited this mark from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @mark.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :presentation_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :presentation_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:presentation_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :jury_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :jury_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:jury_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :criterion_1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :criterion_1, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:criterion_1) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :criterion_2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :criterion_2, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:criterion_2) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :criterion_3, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :criterion_3, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:criterion_3) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :criterion_4, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :criterion_4, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:criterion_4) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :criterion_5, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :criterion_5, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:criterion_5) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                marks_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

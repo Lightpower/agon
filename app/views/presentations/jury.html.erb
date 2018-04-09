@@ -1,0 +1,19 @@
+<%- model_class = Presentation -%>
+<div class="header">
+  <strong>Член жюри:</strong> <%= @jury.name %> - 
+  <strong><%= @presentation.name %></strong> - 
+  Страница <strong><span id="page_number" name="page_number"><%= @presentation.page %></span></strong>
+</div>
+
+<div class="content" data-page="<%= @presentation.page %>" data-max-page="<%= @pages.size %>" data-presentation-id="<%= @presentation.id %>">
+  <% @pages.each_with_index do |filename, page| %>
+    <%= image_tag "/pdf/#{@presentation.path}/#{filename}", class: (page != @presentation.page - 1) ? 'hidden' : '' %>
+  <% end %>
+</div>
+
+<div class="footer">
+  <%= link_to 'Назад', '#', class: 'btn btn-default back' %>
+  <%= link_to 'К докладчику', '#', class: 'btn btn-default sync' %>
+  <%= link_to 'Дальше', '#', class: 'btn btn-default next' %>
+</div>
+

@@ -1,0 +1,17 @@
+<div class="header">
+  <strong><%= @presentation.name %></strong> - 
+  Страница <strong><span id="page_number" name="page_number"><%= @presentation.page %></span></strong>
+</div>
+
+<div class="content" data-page="<%= @presentation.page %>" data-max-page="<%= @pages.size %>" data-presentation-id="<%= @presentation.id %>">
+  <% @pages.each_with_index do |filename, page| %>
+    <%= image_tag "/pdf/#{@presentation.path}/#{filename}", class: (page != @presentation.page - 1) ? 'hidden' : '' %>
+  <% end %>
+</div>
+
+<div class="footer">
+  <%= link_to 'Назад', '#', class: 'btn btn-default step-back' %>
+  <%= link_to 'Закончить', '#', class: 'btn btn-default end' %>
+  <%= link_to 'Дальше', '#', class: 'btn btn-default step-next' %>
+</div>
+
